@@ -12,21 +12,19 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: jorasinghr/joraadf
-          token: ${{secrets.GITHUB_TOKEN}}  
           ref: adf_publish
           path: ./adf~pub
 
       - uses: actions/checkout@v2
         with:
           repository: jorasinghr/joraadf
-          token: ${{secrets.GITHUB_TOKEN}}  
           ref: main
           path: ./adf~main
         
       - uses: actions/checkout@v2
         with:
           repository: Gard-AS/gard-mgtrep-scripts
-          token: ${{secrets.GITHUB_TOKEN}}  
+          token: ${{secrets.gard}}  
           ref: main
           path: ./script
         
