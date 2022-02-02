@@ -1,0 +1,12 @@
+{
+	"name": "joraDB",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=jora-test.database.windows.net;initial catalog=joraDB;user id=jora-admin",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkpPUkFBREZfMTdkZDQ0NjAtYjI5OC00YTFiLTg3MjQtMWY5MjI3ZTZjOGM5Ig0KfQ=="
+		}
+	}
+}

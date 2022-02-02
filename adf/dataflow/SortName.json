@@ -1,0 +1,35 @@
+{
+	"name": "SortName",
+	"properties": {
+		"folder": {
+			"name": "birthdays"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Excel2",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "pipeline1Txt",
+						"type": "DatasetReference"
+					},
+					"name": "sink"
+				}
+			],
+			"transformations": [
+				{
+					"name": "SortName"
+				}
+			],
+			"script": "source(output(\n\t\t{Name } as string,\n\t\t{Date of Birth} as date 'yyyy-MM-dd',\n\t\tUPN as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 sort(asc(month({Date of Birth}), true),\n\tasc(dayOfMonth({Date of Birth}), true),\n\tasc({Name }, true),\n\tcaseInsensitive: true) ~> SortName\nSortName sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tumask: 0022,\n\tpreCommands: [],\n\tpostCommands: [],\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tsaveOrder: 1) ~> sink"
+		}
+	}
+}

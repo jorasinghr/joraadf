@@ -1,0 +1,9 @@
+{
+	"name": "joraadf",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "603f3e89-4689-42d4-931f-39ae3ff45f94",
+		"tenantId": "98406208-36fb-49b6-8d1c-b26ad4cd389a"
+	}
+}

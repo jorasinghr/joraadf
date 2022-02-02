@@ -1,0 +1,33 @@
+{
+	"name": "Databrcks-test",
+	"properties": {
+		"activities": [
+			{
+				"name": "Test connection",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/jora.randhawa@devoteam.no/connections/ADF/ADF notebook test"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricks1",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"folder": {
+			"name": "movieDB"
+		},
+		"annotations": [],
+		"lastPublishTime": "2021-10-28T08:42:48Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

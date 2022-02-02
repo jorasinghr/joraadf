@@ -1,0 +1,38 @@
+{
+	"name": "Excel2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "birthdays"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Sheet1",
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Cloudify_Bday_list.xlsx",
+				"fileSystem": "joracont"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "Name ",
+				"type": "String"
+			},
+			{
+				"name": "Date of Birth",
+				"type": "String"
+			},
+			{
+				"name": "UPN",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

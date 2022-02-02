@@ -1,0 +1,37 @@
+{
+	"name": "move to sql database",
+	"properties": {
+		"activities": [
+			{
+				"name": "sqldatabase flow",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "1.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "Moviesdb_sqldatabase",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"folder": {
+			"name": "movieDB"
+		},
+		"annotations": [],
+		"lastPublishTime": "2021-10-29T07:22:47Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

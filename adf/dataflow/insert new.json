@@ -1,0 +1,42 @@
+{
+	"name": "insert new",
+	"properties": {
+		"folder": {
+			"name": "birthdays"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Excel2",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				},
+				{
+					"dataset": {
+						"referenceName": "Excel3",
+						"type": "DatasetReference"
+					},
+					"name": "rand"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "pipeline1Txt",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "Union1"
+				}
+			],
+			"script": "source(output(\n\t\t{Name } as string,\n\t\t{Date of Birth} as string,\n\t\tUPN as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource(output(\n\t\t{Name } as string,\n\t\t{Date of Birth} as string,\n\t\tUPN as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> rand\nsource1, rand union(byName: true)~> Union1\nUnion1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tumask: 0022,\n\tpreCommands: [],\n\tpostCommands: [],\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
+		}
+	}
+}
