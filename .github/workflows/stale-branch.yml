@@ -11,13 +11,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          repository: jorasinghr/joraadf
+          repository: Gard-AS/gard-mgtrep-dwh-adf
+          token: ${{secrets.GARD2}} 
           ref: adf_publish
           path: ./adf~pub
 
       - uses: actions/checkout@v2
         with:
-          repository: jorasinghr/joraadf
+          repository: Gard-AS/gard-mgtrep-dwh-adf
+          token: ${{secrets.GARD2}} 
           ref: main
           path: ./adf~main
         
