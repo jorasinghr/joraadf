@@ -1,0 +1,43 @@
+name: Stale branch handler
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:      
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: jorasinghr/joraadf
+          token: ${{secrets.GITHUB_TOKEN}}  
+          ref: adf_publish
+          path: ./adf~pub
+
+      - uses: actions/checkout@v2
+        with:
+          repository: jorasinghr/joraadf
+          token: ${{secrets.GITHUB_TOKEN}}  
+          ref: main
+          path: ./adf~main
+        
+      - uses: actions/checkout@v2
+        with:
+          repository: Gard-AS/gard-mgtrep-scripts
+          token: ${{secrets.GITHUB_TOKEN}}  
+          ref: main
+          path: ./script
+        
+      - name: install pipreqs to generate requirements.txt
+        run: pip install pipreqs
+
+      - name: create requirements.txt from given dir
+        run: pipreqs ./script/markus/dataflow_comparison_automation --force
+      
+      - name: install requirements
+        run: pip install -r ./script/markus/dataflow_comparison_automation/requirements.txt
+      
+      - name: run python script
+        run: python ./script/markus/dataflow_comparison_automation/main.py
