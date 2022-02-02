@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: Gard-AS/gard-mgtrep-scripts
-          token: ${{secrets.GARD}}  
+          token: ${{secrets.GARD2}}  
           ref: main
           path: ./script
         
