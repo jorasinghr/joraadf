@@ -21,14 +21,14 @@ jobs:
           repository: Gard-AS/gard-mgtrep-dwh-adf
           token: ${{secrets.GARD2}} 
           ref: main
-          path: ./adf~main
+          path: /adf~main
         
       - uses: actions/checkout@v2
         with:
           repository: Gard-AS/gard-mgtrep-scripts
           token: ${{secrets.GARD2}}  
           ref: main
-          path: ./script
+          path: /script
         
       - name: install pipreqs to generate requirements.txt
         run: pip install pipreqs
