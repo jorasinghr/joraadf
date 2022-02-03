@@ -28,7 +28,7 @@ jobs:
           repository: Gard-AS/gard-mgtrep-scripts
           token: ${{secrets.GARD2}}  
           ref: test/github-action
-          path: /script
+          path: ./script
         
       - name: install pipreqs to generate requirements.txt
         run: pip install pipreqs
