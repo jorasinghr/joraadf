@@ -14,7 +14,7 @@ jobs:
           repository: Gard-AS/gard-mgtrep-dwh-adf
           token: ${{secrets.GARD2}} 
           ref: adf_publish
-          path: adf~pub
+          path: origin/adf_publish
 
       - uses: actions/checkout@v2
         with:
